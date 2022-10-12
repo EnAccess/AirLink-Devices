@@ -1,0 +1,130 @@
+# Release Notes
+
+Version can be found in `include/MODULE_VERSION.h`.
+
+`MODULE_VERSION.h` indicates the version of embedded code, and refers to
+changes that do not necessarily impact any functionality outside of the
+embedded repository.
+
+`NEXUS_GLOBAL_VERSION` (`NEXUS_VERSION` in older releases) is a systemwide version number, which indicates compatibility
+with other repositories (primarily with the [`nexus-python`](https://github.com/angaza/nexus-python)
+repository, which is the 'server-side' code coordinating with the embedded code
+in this repository).
+
+Both version fields are semantic version numbers, e.g.:
+
+<MAJOR>.<MINOR>.<PATCH>
+
+Where any code from the same major version should be backwards-compatible
+with other code of the same major version, but is *not* compatible with
+different major version codes.
+
+## Embedded Module Version 2.0.1
+
+Compatible with NEXUS_GLOBAL_VERSION >= 3.0.0
+
+This version includes bugfixes related to linking behavior and clarifies some
+confusing docstrings.
+
+* Controllers and accessories, when completing a new link handshake to a device that they are already
+linked to, will replace the existing link (remove and then add the link again)
+* Controllers and accessories will replace their oldest existing accessory links (this device is
+in the accessory role) when they reach their maximum number of links and a new link handshake
+is completed. Existing controller links (this device is in the controller role) will not be replaced
+* Remove mention of payments/loans from docstrings
+
+## Embedded Module Version 2.0.0
+
+Compatible with NEXUS_GLOBAL_VERSION >= 3.0.0
+
+Provide full support for receiving Nexus Channel "Create Link" and "Erase Links" origin
+commands, as well as portable demonstration projects for both a Nexus Channel
+"Controller" and "Accessory" device using the [PAYG credit resource](https://angaza.github.io/nexus-channel-models/resource_types/core/401-paygcredit/redoc_wrapper.html) on an STM32F103 using the open-source [Zephyr RTOS](https://www.zephyrproject.org/).
+
+The "Controller" example project may also be used as a "Nexus Keycode" example project, it fully
+supports Nexus Keycodes (see specific example project folders for more details).
+
+* Reduce static code size of projects compiled with Nexus Channel support (by reducing the memory dedicated to CBOR parsing to ensure space
+for 25 'objects' instead of 100, see `OC_MAX_NUM_REP_OBJECTS`).
+* Provide Nexus Channel secured POST operation on PAYG credit resource reference implementation
+* Implement accessory and controller PAYG credit resource behavior to match Nexus Channel Core resource model
+* Correct built-in reference resource RTRs to match published RTRs from the [Nexus Channel Resource Type Registry](https://angaza.github.io/nexus-channel-models/resource_type_registry.html)
+* COSE MAC0 verification skips 0-length URIs
+* Correct maximum secured payload size to account for COSE overhead
+* Introduce CoAP transaction retries when received MAC0 nonce is out of sync ('nonce sync')
+* Timeout/remove client-side request callbacks if no reply is received
+* Add CoAP parser CLI tool
+* Move reused constants related to CoAP/CBOR into `shared_oc_config.h`
+* Remove dead code from OC (primarily related to TCP)
+* Add deobfuscation for [Nexus Channel Origin Commands](https://github.com/angaza/nexus-python#nexus-channel-origin-commands)
+* Add Zephyr-based STM32F103 [Secured Nexus Channel **Controller** (with PAYG) Example](examples/Nexus_Channel_Controller_F103RB)
+* Add Zephyr-based STM32F103 [Secured Nexus Channel **Accessory** (with PAYG) Example](examples/Nexus_Channel_Accessory_F103RB)
+See also: [Nexus Channel Demonstration using Zephyr Example](https://www.youtube.com/watch?v=A_SJdJS7SMQ)
+
+## Embedded Module Version 1.2.0
+
+Compatible with NEXUS_VERSION/NEXUS_GLOBAL_VERSION >= 2.2.0
+
+* Add handler for small keycode protocol 'passthrough' message types
+
+* Add 'extended' small protocol, which provides a new "SET CREDIT + WIPE RESTRICTED FLAG"
+keycode (also implemented in the `nexus-python` server-side encoder.
+
+This 'extended' protocol is implemented as small protocol "Passthrough"
+application ID 1.
+
+The remaining 25 bits of the passthrough message are:
+
+* 3 bits = Extended message Type ID
+* 10 bits = Extended message body (varies based on type ID)
+* 12 bits = Extended message MAC (same MAC/auth length as standard keycodes)
+
+Unlike standard small protocol keycodes, there is no explicit 6-bit message
+ID transmitted in every message, which adds significant complexity to the
+encoder logic, and makes detecting duplicate messages much more difficult
+(impossible in some cases).
+
+## Embedded Module Version 1.0.0
+
+Compatible with NEXUS_VERSION >= 2.1
+
+* Adds client-side request- and reply- handling interfaces, including support for
+query strings and "reply context". This context stores information about the request that
+can be used to process the corresponding reply when it is received from the server.
+
+* Add "rtr" (Resource Type Registry) to the resource registration API. The "rtr" value is
+required for all Nexus Channel resources as per the specification at the time of this
+release. It is intended to be used in resource discovery, to be implemented in a future
+release.
+
+* Rename public interfaces in `include/` to avoid using `core` for names of
+common/baseline code used by all Nexus implementations. This is done to avoid
+confusing these functions and definitions with "Nexus Channel Core", which is unrelated.
+
+* Add support for "Nexus Channel Core" only `Kconfig` compilation option
+(More on Nexus Channel Core [here](https://angaza.github.io/nexus-channel-models/))
+
+* Apply code style formatting to all source in the `oc/` folder/subfolders
+
+* Add an embedded sample program using a PlatformIO board running Zephyr OS. The sample
+provides an interactive demonstration of client and server behavior with a battery
+resource implemented to the specification as of this release.
+
+## Embedded Module Version 0.8.0
+
+Compatible with NEXUS_VERSION >= 2.1
+
+* Add support for keycode 'restricted' flag, which is set by product
+code (via interfaces in `nx_keycode`) and is reset via a special keycode
+available in both small and full keycode protocols
+(see https://github.com/angaza/nexus-python/pull/8 for keycode generation)
+
+* Code is more C++ friendly (header files updated with `extern "C"`),
+modifications made to pass stricter C++ compilation checks (no need for
+implementing project to use `fpermissive`, tested with G++-10)
+
+* More strict static analysis, use multiple compilers for CI test and analysis
+builds (GCC-10 with address sanitization and Clang 10)
+
+* Fixed unit tests that had memory / address sanitizer errors (flagged by
+Valgrind and/or GCC address sanitizer tools)
