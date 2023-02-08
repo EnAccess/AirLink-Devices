@@ -14,7 +14,7 @@ Once the App starts, it will try to advertise on its own and available to connec
 
 | Overview |
 | ------------- | 
-| <img src="https://github.com/kkhahima/airlink-ble-simulator/blob/master/app/src/main/res/screenshots/overview.jpg"  width="400"> | 
+| <img src="https://github.com/EnAccess/AirLink-Devices/blob/main/Device%20Simulator/screenshots/overview.jpg"  width="400"> | 
 
  - **Advertise** - Tries to (stop advertising if already started and) advertise
  - **Stop advertising** - Stops the app from advertising
