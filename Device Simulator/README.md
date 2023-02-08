@@ -23,7 +23,7 @@ Once the App starts, it will try to advertise on its own and available to connec
 ## Known issues
 1. **Does not advertise for SDK > 28 (Above Android 9)** - The app does not work as a BLE advertiser on devices running Android 9 or above (SDK version 28 and above).
 
-2. **Device ID (MAC Address) keeps changin ** - Every time the app advertises, the Device ID (MAC Address) changes, making it difficult to keep track of the same device over time.
+2. **Device ID (MAC Address) keeps changing** - Every time the app advertises, the Device ID (MAC Address) changes, making it difficult to keep track of the same device over time.
 
 3. **Duplicate services added** - Occasionally, the app adds redundant services (should normally be two), causing the [AirLink Gateway Mobile App](https://airlinkdocs.enaccess.org/AirLink%20Manual%2083f2c2ce8fb0463a9078d63aad81a0c7/AirLink%20App%20ab448f056ad94eb097874d756342f361.html) to be unable to read descriptors. In these cases, resetting the solves the issue.
 
