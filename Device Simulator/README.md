@@ -8,13 +8,13 @@ The AirLink Device BLE Simulator app is a useful tool for developers who want to
 - Emulating entry of PayG tokens
 
 ## How to use
-Using this App is easy. Clone/download this repo on your favorite IDE and generate an APK.
+Using this App is easy. You can [download the APK file](https://github.com/EnAccess/AirLink-Devices/blob/main/Device%20Simulator/assets/apk/app.apk) or  clone/download this repo on your favorite IDE and generate an APK.
 
 Once the App starts, it will try to advertise on its own and available to connect. If advertisement fails, see below for the list of possible issues and troubleshooting.
 
 | Overview |
 | ------------- | 
-| <img src="https://github.com/EnAccess/AirLink-Devices/blob/main/Device%20Simulator/screenshots/overview.jpg"  width="400"> | 
+| <img src="https://github.com/EnAccess/AirLink-Devices/blob/main/Device%20Simulator/assets/screenshots/overview.jpg"  width="400"> | 
 
  - **Advertise** - Tries to (stop advertising if already started and) advertise
  - **Stop advertising** - Stops the app from advertising
