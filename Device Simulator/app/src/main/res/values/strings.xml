@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">AirLink BLE Simulator</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="button">Button</string>
+    <string name="advertise">Advertise</string>
+    <string name="ble_support">BLE Support</string>
+    <string name="not_supported">Not supported</string>
+    <string name="supported">Supported</string>
+    <string name="connected_devices">Connected devices</string>
+    <string name="_0">0</string>
+
+    <string name="status_advAlreadyStarted">Failed to start advertising as the advertising is already started.</string>
+    <string name="status_advDataTooLarge">Not Advertising. Advertisement is larger than 31 bytes.</string>
+    <string name="status_featureNotSupportedOnPlatform">Not Advertising. This feature is not supported on this platform.</string>
+    <string name="status_advInternalError">Not Advertising. Internal error occurred.</string>
+    <string name="status_advTooManyAdvertisers">Not Advertising. No advertising instance is available.</string>
+    <string name="status">Status</string>
+    <string name="status_advFailed">Advertising failed</string>
+    <string name="status_notAdvertising">Not advertising</string>
+    <string name="status_advertising">Advertising</string>
+    <string name="reset">Reset</string>
+    <string name="reset_data">Reset Data</string>
+    <string name="readvertise">Readvertise</string>
+    <string name="stop_advertising">Stop advertising</string>
+    <string name="device_status">Device status</string>
+    <string name="device_details">Device details</string>
+
+</resources>

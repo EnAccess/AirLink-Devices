@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/Theme.Airlinkblesim.AppBarOverlay"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="AirLink BLE Simulator"
+        app:titleTextColor="@color/white" />
+
+    <TextView
+        android:id="@+id/dvcStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/device_status"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/dvcStatusTextView"
+        android:stretchColumns="1">
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:id="@+id/bleSupportTextView"
+                android:text="@string/ble_support" />
+            <TextView
+                android:id="@+id/bleSupportValueTextView"
+                android:textAlignment="textEnd" />
+        </TableRow>
+
+        <TableRow android:layout_marginBottom="8dp">
+            <TextView
+                android:text="@string/status" />
+            <TextView
+                android:id="@+id/advtStatusTextView"
+                android:textAlignment="textEnd" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/connected_devices" />
+            <TextView
+                android:id="@+id/connectedDevicesTextView"
+                android:text="@string/_0"
+                android:textAlignment="textEnd" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/dvcDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/device_details"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/deviceNameTextView"
+        android:text="Name"
+        android:layout_below="@+id/dvcDetailsTextView"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"/>
+
+    <TextView
+        android:id="@+id/deviceNameValueTextView"
+        android:layout_below="@+id/dvcDetailsTextView"
+        android:layout_toEndOf="@+id/deviceNameTextView"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="textEnd"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"/>
+
+    <TextView
+        android:id="@+id/deviceNumberTextView"
+        android:text="Serial number"
+        android:layout_below="@+id/deviceNameTextView"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"/>
+
+    <TextView
+        android:id="@+id/deviceNumberValueTextView"
+        android:layout_below="@+id/deviceNameTextView"
+        android:layout_toEndOf="@+id/deviceNameTextView"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="textEnd"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"/>
+
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_above="@id/relativeLayout"
+        android:layout_below="@+id/deviceNumberTextView"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/advBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/advertise"
+            android:layout_alignParentStart="true"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/stopAdvBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/rstBtn"
+            android:layout_toEndOf="@id/advBtn"
+            android:text="@string/stop_advertising"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/rstBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:text="@string/reset"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
