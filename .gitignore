@@ -1,1 +1,4 @@
+# User-specific files
 .DS_Store
+.idea/
+.vscode/
