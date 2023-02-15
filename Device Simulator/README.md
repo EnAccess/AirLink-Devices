@@ -25,9 +25,9 @@ Once the App starts, it will try to advertise on its own and available to connec
 
 2. **Device ID (MAC Address) keeps changing** - Every time the app advertises, the Device ID (MAC Address) changes, making it difficult to keep track of the same device over time.
 
-3. **Duplicate services added** - Occasionally, the app adds redundant services (should normally be two), causing the [AirLink Gateway Mobile App](https://airlinkdocs.enaccess.org/AirLink%20Manual%2083f2c2ce8fb0463a9078d63aad81a0c7/AirLink%20App%20ab448f056ad94eb097874d756342f361.html) to be unable to read descriptors. In these cases, resetting the solves the issue.
+3. **Duplicate services added** - Occasionally, the app adds redundant services (should normally be two), causing the [AirLink Gateway Mobile App](https://airlinkdocs.enaccess.org/AirLink%20Manual%2083f2c2ce8fb0463a9078d63aad81a0c7/AirLink%20App%20ab448f056ad94eb097874d756342f361.html) to be unable to read descriptors. In these cases, resetting the app solves the issue.
 
-You might want to use the [nRF Connect App](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=en&gl=US) for further debugging such as looking for duplicate services
+ You might want to use the [nRF Connect App](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=en&gl=US) for further debugging such as looking for duplicate services
 
 4. **Advertisement packet limit** - If the advertisement packet (manufacturer data) exceeds 31 bytes, the device may fail to advertise. This can be caused by writing more than 5 characters while provisioning the device.
 
