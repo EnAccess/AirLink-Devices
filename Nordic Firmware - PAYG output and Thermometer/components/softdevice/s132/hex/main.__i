@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\..\config -I ..\config --reduce_paths
+-I.\RTE\_flash_s132_nrf52_7.2.0_softdevice
+-I"C:\Users\Lawrence Hermes\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.38.0\Device\Include"
+-IC:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="531" -D_RTE_ -DNRF52832_XXAA -D_RTE_ -D__HEAP_SIZE="1024" -D__STACK_SIZE="2048"
+-o ..\..\..\..\..\..\components\softdevice\s132\hex\main.o --omf_browse ..\..\..\..\..\..\components\softdevice\s132\hex\main.crf --depend ..\..\..\..\..\..\components\softdevice\s132\hex\main.d "..\..\..\main.c"

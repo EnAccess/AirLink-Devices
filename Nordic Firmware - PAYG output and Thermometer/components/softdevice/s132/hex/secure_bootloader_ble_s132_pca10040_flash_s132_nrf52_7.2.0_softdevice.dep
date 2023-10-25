@@ -1,0 +1,80 @@
+Dependencies for Project 'secure_bootloader_ble_s132_pca10040', Target 'flash_s132_nrf52_7.2.0_softdevice': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
+F (..\..\..\dfu_public_key.c)(0x60D1B783)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\config -I ..\config --reduce_paths-I.\RTE\_flash_s132_nrf52_7.2.0_softdevice-I"C:\Users\Lawrence Hermes\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.38.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -D_RTE_ -DNRF52832_XXAA -D_RTE_ -D__HEAP_SIZE="0"-o ..\..\..\..\..\components\softdevice\s132\hex\dfu_public_key.o --omf_browse ..\..\..\..\..\components\softdevice\s132\hex\dfu_public_key.crf --depend ..\..\..\..\..\components\softdevice\s132\hex\dfu_public_key.d)
+F (..\..\main.c)(0x6119300F)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\config -I ..\config --reduce_paths-I.\RTE\_flash_s132_nrf52_7.2.0_softdevice-I"C:\Users\Lawrence Hermes\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.38.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="531" -D_RTE_ -DNRF52832_XXAA -D_RTE_ -D__HEAP_SIZE="0"-o ..\..\..\..\..\components\softdevice\s132\hex\main.o --omf_browse ..\..\..\..\..\components\softdevice\s132\hex\main.crf --depend ..\..\..\..\..\components\softdevice\s132\hex\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5EC7BC54)
+F (..\config\sdk_config.h)(0x60DB474F)()
+F (..\..\..\..\..\components\boards\boards.c)(0x611931B5)()
+F (..\..\..\..\..\components\ble\common\ble_srv_common.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_app_start.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_app_start_final.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_dfu_timers.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_fw_activation.c)(0x60D5F75C)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_info.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_wdt.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\nrf_crypto_ecc.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\nrf_crypto_ecdsa.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\nrf_crypto_hash.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\nrf_crypto_init.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\nrf_crypto_shared.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_chacha_poly_aead.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_ecc.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_ecdh.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_ecdsa.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_eddsa.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_hash.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\oberon\oberon_backend_hmac.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\nrf_sw\nrf_sw_backend_hash.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\micro_ecc\micro_ecc_backend_ecc.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\micro_ecc\micro_ecc_backend_ecdh.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crypto\backend\micro_ecc\micro_ecc_backend_ecdsa.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\dfu-cc.pb.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\ble_dfu\nrf_dfu_ble.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_flash.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_handling_error.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_mbr.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_req_handler.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_settings.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_settings_svci.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_transport.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_utils.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_validation.c)(0x61192FB2)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_ver_validation.c)(0x5F5B7109)()
+F (..\..\..\..\..\modules\nrfx\hal\nrf_nvmc.c)(0x5F5B710F)()
+F (..\..\..\..\..\modules\nrfx\soc\nrfx_atomic.c)(0x5F5B710F)()
+F (..\..\..\..\..\components\libraries\util\app_error_weak.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\scheduler\app_scheduler.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\util\app_util_platform.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\crc32\crc32.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\mem_manager\mem_manager.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\util\nrf_assert.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\atomic_fifo\nrf_atfifo.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\atomic\nrf_atomic.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\balloc\nrf_balloc.c)(0x5F5B7109)()
+F (..\..\..\..\..\external\fprintf\nrf_fprintf.c)(0x5F5B710F)()
+F (..\..\..\..\..\external\fprintf\nrf_fprintf_format.c)(0x5F5B2A6E)()
+F (..\..\..\..\..\components\libraries\fstorage\nrf_fstorage.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\fstorage\nrf_fstorage_nvmc.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\fstorage\nrf_fstorage_sd.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\memobj\nrf_memobj.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\queue\nrf_queue.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\ringbuf\nrf_ringbuf.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\experimental_section_vars\nrf_section_iter.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\strerror\nrf_strerror.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\sha256\sha256.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\log\src\nrf_log_frontend.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\log\src\nrf_log_str_formatter.c)(0x5F5B7109)()
+F (..\..\..\..\..\external\nrf_oberon\lib\cortex-m4\hard-float\short-wchar\oberon_3.0.6.lib)(0x5F5B2A9A)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_svci.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\bootloader\dfu\nrf_dfu_svci_handler.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\libraries\svc\nrf_svc_handler.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\softdevice\common\nrf_sdh.c)(0x60BD3E9E)()
+F (..\..\..\..\..\components\softdevice\common\nrf_sdh_ble.c)(0x5F5B7109)()
+F (..\..\..\..\..\components\softdevice\common\nrf_sdh_soc.c)(0x5F5B7109)()
+F (..\..\..\..\..\external\nano-pb\pb_common.c)(0x5F5B2A6E)()
+F (..\..\..\..\..\external\nano-pb\pb_decode.c)(0x5F5B2A6E)()
+F (RTE\Device\nRF52832_xxAA\arm_startup_nrf52.s)(0x6001A06E)()
+F (RTE\Device\nRF52832_xxAA\system_nrf52.c)(0x6001A06E)()

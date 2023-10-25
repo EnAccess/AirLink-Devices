@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['user_5fname_0',['user_name',['../group___simusolar___f_l__main.html#ga6894b8277bb45d29e90a310f9ebe76d1',1,'user_name():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6894b8277bb45d29e90a310f9ebe76d1',1,'user_name():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6894b8277bb45d29e90a310f9ebe76d1',1,'user_name():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6894b8277bb45d29e90a310f9ebe76d1',1,'user_name():&#160;main.c']]],
+  ['user_5fphone_1',['user_phone',['../group___simusolar___f_l__main.html#ga6ddb1ec8ed169e21a5688a7439310bd5',1,'user_phone():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6ddb1ec8ed169e21a5688a7439310bd5',1,'user_phone():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6ddb1ec8ed169e21a5688a7439310bd5',1,'user_phone():&#160;main.c'],['../group___simusolar___f_l__main.html#ga6ddb1ec8ed169e21a5688a7439310bd5',1,'user_phone():&#160;main.c']]],
+  ['uuid_5ftype_2',['uuid_type',['../structble__payg__service__s.html#a72397dca62a7f7a53fdaf3c61035ba41',1,'ble_payg_service_s::uuid_type()'],['../structble__provision__service__s.html#a72397dca62a7f7a53fdaf3c61035ba41',1,'ble_provision_service_s::uuid_type()']]]
+];
