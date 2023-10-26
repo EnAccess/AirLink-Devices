@@ -1,0 +1,142 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: L H, S, LIC=47GU5-GBEYJ-EVC1R-KBE58-NJ0C2-G16L4
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      Segger\JL2CM3.dll V2.99.38.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\Workspace\Simusolar\PAYG_FL\firmware\ble_peripheral\ble_app_payg_fl_ota\pca10100\s140\arm5_no_packs\ble_app_buttonless_dfu_pca10100_s140.uvprojx
+Project File Date:  09/04/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'flash_s140_nrf52_7.2.0_softdevice'
+Before Build - User command #1: attrib +R ..\..\..\..\..\..\components\softdevice\s140\hex\\*
+compiling ble_payG_update_service.c...
+..\..\..\Sources\ble_payG_update_service.h(6): error:  #5: cannot open source input file "boards.h": No such file or directory
+  #include "boards.h"
+..\..\..\Sources\ble_payG_update_service.c: 0 warnings, 1 error
+compiling ble_provision_service.c...
+..\..\..\Sources\ble_provision_service.h(6): error:  #5: cannot open source input file "boards.h": No such file or directory
+  #include "boards.h"
+..\..\..\Sources\ble_provision_service.c: 0 warnings, 1 error
+compiling main.c...
+..\..\..\main.c(19): error:  #5: cannot open source input file "ble_resource_definitions.h": No such file or directory
+  #include "ble_resource_definitions.h"
+..\..\..\main.c: 0 warnings, 1 error
+compiling ble_resource_definitions.c...
+..\..\..\Sources\ble_resource_definitions.h(4): error:  #5: cannot open source input file "ble_conn_params.h": No such file or directory
+  #include "ble_conn_params.h"
+..\..\..\Sources\ble_resource_definitions.c: 0 warnings, 1 error
+compiling gfx_definitions.c...
+..\..\..\Sources\gfx_definitions.c(4): error:  #5: cannot open source input file "nrf_gfx.h": No such file or directory
+  #include "nrf_gfx.h"
+..\..\..\Sources\gfx_definitions.c: 0 warnings, 1 error
+compiling ble_timers_definitions.c...
+C:\Users\Lawrence Hermes\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.38.0\Device\Include\nrf52833.h(145): error:  #5: cannot open source input file "core_cm4.h": No such file or directory
+  #include "core_cm4.h"                           /*!< ARM Cortex-M4 processor and core peripherals                              */
+..\..\..\Sources\ble_timers_definitions.c: 0 warnings, 1 error
+compiling ble_pwr_mgmt_definitions.c...
+..\..\..\Sources\ble_pwr_mgmt_definitions.h(4): error:  #5: cannot open source input file "nrf_pwr_mgmt.h": No such file or directory
+  #include "nrf_pwr_mgmt.h"
+..\..\..\Sources\ble_pwr_mgmt_definitions.c: 0 warnings, 1 error
+compiling ble_gpio_config.c...
+..\..\..\Sources\ble_gpio_config.h(5): error:  #5: cannot open source input file "bsp_btn_ble.h": No such file or directory
+  #include "bsp_btn_ble.h"
+..\..\..\Sources\ble_gpio_config.c: 0 warnings, 1 error
+compiling ble_comm_definitions.c...
+..\..\..\Sources\ble_comm_definitions.h(4): error:  #5: cannot open source input file "ble_nus.h": No such file or directory
+  #include "ble_nus.h"
+..\..\..\Sources\ble_comm_definitions.c: 0 warnings, 1 error
+compiling ble_flash_fstorage_definitions.c...
+..\..\..\Sources\ble_flash_fstorage_definitions.h(3): error:  #5: cannot open source input file "nrf_fstorage.h": No such file or directory
+  	#include "nrf_fstorage.h"
+..\..\..\Sources\ble_flash_fstorage_definitions.c: 0 warnings, 1 error
+compiling huada_definitions.c...
+..\..\..\Sources\huada_definitions.c(3): error:  #5: cannot open source input file "nrf_gpio.h": No such file or directory
+  #include "nrf_gpio.h"
+..\..\..\Sources\huada_definitions.c: 0 warnings, 1 error
+compiling nrf_drv_spi.c...
+..\..\..\..\..\..\integration\nrfx\legacy\nrf_drv_spi.h(44): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\integration\nrfx\legacy\nrf_drv_spi.c: 0 warnings, 1 error
+compiling cbor_definitions.c...
+compiling nrfx_spi.c...
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_spi.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_spi.c: 0 warnings, 1 error
+compiling nrfx_spim.c...
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_spim.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_spim.c: 0 warnings, 1 error
+compiling nrfx_rtc.c...
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_rtc.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_rtc.c: 0 warnings, 1 error
+compiling st7735.c...
+..\..\..\..\..\..\components\drivers_ext\st7735\st7735.c(41): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\drivers_ext\st7735\st7735.c: 0 warnings, 1 error
+compiling ili9341.c...
+..\..\..\..\..\..\components\drivers_ext\ili9341\ili9341.c(41): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\drivers_ext\ili9341\ili9341.c: 0 warnings, 1 error
+compiling orkney8pts.c...
+compiling orkney24pts.c...
+compiling nrf_gfx.c...
+..\..\..\..\..\..\components\libraries\gfx\nrf_gfx.c(41): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\libraries\gfx\nrf_gfx.c: 0 warnings, 1 error
+compiling retarget.c...
+..\..\..\..\..\..\components\libraries\uart\retarget.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\libraries\uart\retarget.c: 0 warnings, 1 error
+compiling app_fifo.c...
+..\..\..\..\..\..\components\libraries\fifo\app_fifo.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\libraries\fifo\app_fifo.c: 0 warnings, 1 error
+compiling app_uart_fifo.c...
+..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c: 0 warnings, 1 error
+compiling drv_rtc.c...
+..\..\..\..\..\..\components\libraries\timer\drv_rtc.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\components\libraries\timer\drv_rtc.c: 0 warnings, 1 error
+"..\..\..\..\..\..\components\softdevice\s140\hex\s140_nrf52_7.2.0_softdevice.hex" - 22 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.38.0.pack
+                NordicSemiconductor.nRF_DeviceFamilyPack.8.38.0
+                Nordic Semiconductor nRF ARM devices Device Family Pack with BSD license.
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_flash_s140_nrf52_7.2.0_softdevice
+  C:\Users\Lawrence Hermes\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.38.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
