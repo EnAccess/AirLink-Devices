@@ -1,6 +1,9 @@
 @echo off
-SET PROJECT_PATH=D:\Workspace\Simusolar\AIRLINK-DEVICE - OPEN SOURCE
-SET WORKING_PATH=D:\Workspace\Simusolar\collectables\
+cd..
+cd..
+SET PROJECT_PATH=%CD%
+cd collectable\Working
+SET WORKING_PATH=%CD%
 
 cd /d "%PROJECT_PATH%\collectable\Flash"
 attrib +r ble_build_all.bat
@@ -64,10 +67,33 @@ IF EXIST "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble_debug\
   pause
 )
 
+REM Build gcc-based projects
+@echo Start building from GCC
+@echo off
+REM Compile arm-mdk projects
+cd /d "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10040\s132\armgcc"
+make
+cd /d "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10100\s140\armgcc"
+make
+
+cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble\armgcc"
+make
+cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble_debug\armgcc"
+make
+cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble\armgcc"
+make
+cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble_debug\armgcc"
+make
+
+
 REM Copy files to ouput, for now we use arm-mdk as primary compiler
 copy "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10040\s132\arm5_no_packs\_build\nrf52832_xxaa.hex" "%WORKING_PATH%"
 copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble\arm5_no_packs\_build\nrf52832_xxaa_s132.hex" "%WORKING_PATH%"
 copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble_debug\arm5_no_packs\_build\nrf52832_xxaa_s132.hex" "%WORKING_PATH%\nrf52832_xxaa_s132_debug.hex"
+
+copy "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10100\s140\arm5_no_packs\_build\nrf52833_xxaa.hex" "%WORKING_PATH%"
+copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble\arm5_no_packs\_build\nrf52833_xxaa_s140.hex" "%WORKING_PATH%"
+copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble_debug\arm5_no_packs\_build\nrf52833_xxaa_s140.hex" "%WORKING_PATH%\nrf52833_xxaa_s140_debug.hex"
 
 REM Copy softdevice
 copy "%PROJECT_PATH%\components\softdevice\s132\hex\s132_nrf52_7.2.0_softdevice.hex" "%WORKING_PATH%"
@@ -84,9 +110,6 @@ mergehex --merge nrf52832_xxaa_s132_debug.hex bootloader_setting652.hex --output
 mergehex --merge bootloader_with_setting652.hex nrf52832_xxaa.hex --output bootloader_with_setting_app652.hex
 mergehex --merge bootloader_with_setting_app652.hex s132_nrf52_7.2.0_softdevice.hex --output bl652_debug.hex
 
-copy "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10100\s140\arm5_no_packs\_build\nrf52833_xxaa.hex" "%WORKING_PATH%"
-copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble\arm5_no_packs\_build\nrf52833_xxaa_s140.hex" "%WORKING_PATH%"
-copy "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble_debug\arm5_no_packs\_build\nrf52833_xxaa_s140.hex" "%WORKING_PATH%\nrf52833_xxaa_s140_debug.hex"
 
 cd /d "%WORKING_PATH%"
 nrfutil settings generate --family NRF52 --application nrf52833_xxaa.hex --application-version 0 --bootloader-version 0 --bl-settings-version 2 bootloader_setting.hex
@@ -164,23 +187,5 @@ copy "%WORKING_PATH%\bl652_debug_app_dfu_package.zip" "%PROJECT_PATH%\collectabl
 copy "%WORKING_PATH%\bl652_debug_app_dfu_package.zip" "%PROJECT_PATH%\collectable\Flash\%today%_%mytime%_bl652_x_airlink_ota_x_package.zip"
 copy "%WORKING_PATH%\bl653_debug_app_dfu_package.zip" "%PROJECT_PATH%\collectable\Flash\%today%_%mytime%_bl653_x_debug_ota_x_package.zip"
 copy "%WORKING_PATH%\bl653_debug_app_dfu_package.zip" "%PROJECT_PATH%\collectable\Flash\%today%_%mytime%_bl653_x_airlink_x_dfu_package.zip"
-
-REM Build gcc-based projects
-@echo Start building from GCC
-@echo off
-REM Compile arm-mdk projects
-cd /d "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10040\s132\armgcc"
-make
-cd /d "%PROJECT_PATH%\firmware\ble_peripheral\ble_app_x_ota\pca10100\s140\armgcc"
-make
-
-cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble\armgcc"
-make
-cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10040_s132_ble_debug\armgcc"
-make
-cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble\armgcc"
-make
-cd /d "%PROJECT_PATH%\firmware\dfu\secure_bootloader\pca10100_s140_ble_debug\armgcc"
-make
 
 pause

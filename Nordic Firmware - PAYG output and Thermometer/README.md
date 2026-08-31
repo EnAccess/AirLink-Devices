@@ -1,7 +1,8 @@
 # Simusolar
 ## Airlink-Device Project
-Airlink-Device Project was primarily focused on the new Bluetooth-enabled fishing light called NURU.
-The project has been extended to host other sub-projects for PAYG control boxes that enable simusolar to have a financed model for not only fishing light customers but also for customers who need other products like pumps and solar refrigerators.
+This project is based on nrf52 buttonless bootloader, though the project uses BL modules from Laird, the language used is C and not smart-basic.
+The choice of C programming is due to its flexibility of it especially on writing the low-level drivers eg. GFX
+The project illustrates temperature logging using NRF52 in-built temperature sensor and retrieval via bluetooth using Airlink protocol.
  
 ## Sub-Project SSL FL and it's Features
 SSL FL is a project based on enabling fishermen to have a better fishing light.
@@ -15,25 +16,18 @@ This fishing light is compatible with Enaccess Airlink, this allows sharing of c
 - 5.0 Bluetooth wireless (No gsm, data can be sent to a server via gsm enabled gateway)
 - Other features
 
-## Sub-Project PAYGLV, PAYGHV, PAYGFL (FL Charger) and it's Features
-Todo
-- Nexus Resource model compatible
-- TODO
-
-This project is based on nrf52 buttonless bootloader, though the project uses BL modules from Laird, the language used is C and not smart-basic.
-The choice of C programming is due to its flexibility of it especially on writing the low-level drivers eg. GFX
-
 ## Tech
 
-Simusolar FL uses several open-source projects to work properly:
+This project uses several open-source projects to work properly:
 
 - NRF52 SDK - Project built on top of it.
-- Simusolar Airlink - This app acts as a gateway
+- EnAccess Airlink App - This app acts as a gateway
 - Nexus Keycode - This project provides access to PAYG features
 
 ## Installation
 
-Simusolar FL requires [todo](https://) v17+ to run.
+The project is built on top of NRF5 SDK, examples referenced by this project can be found inside the SDK using download link below.
+SDK(https://www.nordicsemi.com/Products/Development-software/nrf5-sdk) v17+ to run.
 
 Install the dependencies and devDependencies
 ```sh
@@ -63,7 +57,7 @@ There are two options:
 
 Want to contribute? Great!
 
-Simusolar-FL uses Keil MDK or GCC fast developing.
+This Project uses Keil MDK or GCC fast developing.
 Make a change in your file, compile and instantaneously see your updates!
 
 For Debug, The project uses Segger J-link hardware and SWD pins.
@@ -84,7 +78,7 @@ Below Steps are necessary to get started.
    a) For ARM-MDK (Windows) the way is straight and easy, however the advantages comes with high price.
       Step1: Download and install keil from: https://www2.keil.com/mdk5
       Step2: Install targets (nrf52832 and nrf52833) packages using package installer
-      Step3: Compile but don not load (project under either firmware\...\arm5_no_packs) 
+      Step3: Compile but do not load (project under either firmware\...\arm5_no_packs) 
       
    b) For GCC (Windows), you have a long way to go.
       Step1: Read carefully the resource attached: https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/development-with-eclipse-and-gcc
@@ -110,16 +104,12 @@ Below Steps are necessary to get started.
    
 4. Learning Resources:
 a) Advertising, service and characteristics: 
-      https://www.notion.so/simusolar/Create-foundation-for-connectable-adverts-with-encoded-status-capability-on-FL-714c08c233634e0cbaf35c2066a77fcb
-      https://www.notion.so/simusolar/BL652-3-Formated-advertising-7ed4b6e1b26447f78c5ec367069d57df
       SDK17: ble_peripheral\ble_app_blinky example
       
 b) OTA Capability: 
-      https://www.notion.so/simusolar/Create-foundation-for-OTA-capability-on-FL-443d547aedc44794af54007df8388989
       SDK17: ble_peripheral\ble_app_buttonless_dfu example
    
 c) Flash storage: 
-      https://www.notion.so/simusolar/Foundational-for-data-storage-16bae219953a469ca5943bfeca5232c9
       SDK17: peripheral\flash_fstorage example
    
 d) Uart:
@@ -127,9 +117,7 @@ d) Uart:
 
 e) LCD and GFX Library:
       SDK17: peripheral\gfx example
-      https://www.notion.so/simusolar/Customer-can-turn-SSL-fishing-light-on-off-and-view-status-fef5ddb0934044a6abe3538515e406c2
-      http://www.eran.io/the-dot-factory-an-lcd-font-and-image-generator/
-
+      
 f) Timers and rtc: 
       SDK17: peripheral\rtc example
       SDK17: peripheral\timer example
@@ -140,22 +128,19 @@ g) GPIOs,buttons and LEDs
 h) Temperature
       SDK17: peripheral\temperature example
   
-i) Battery decision and logic:
-      https://www.notion.so/simusolar/Create-low-power-mode-power-budget-for-Fishing-Light-for-BL653-fdff43ad9d1e47fabfa978dfc4b1ba49#09748d9f6ff14b7f815377282f962fce
-
-j) CBOR:
+i) CBOR:
       https://en.wikipedia.org/wiki/CBOR
       https://cbor.io/
       https://cbor.me/
       
 5) Important files and roles:
    sdk_config.h: Master configuration file
-   ssl_config.h: SSL Based configuration
+   ssl_config.h: Second level configuration
    ssl_global_variables.h: Master varibles and structures
 ```
 #### Building for source
 
-Simusolar-FL uses a secure bootloader, which requires both private and public keys.
+The project uses a secure bootloader, which requires both private and public keys.
 ```sh
 **Steps for keys creation:**
 source: https://devzone.nordicsemi.com/nordic/short-range-guides/b/software-development-kit/posts/getting-started-with-nordics-secure-dfu-bootloader
@@ -163,52 +148,63 @@ source: https://devzone.nordicsemi.com/nordic/short-range-guides/b/software-deve
 1. Download nrfutil from https://github.com/NordicSemiconductor/pc-nrfutil/releases
 
 2. Generate a private key using the command: nrfutil.exe keys generate private.key
+   copy this file to \collectable\Working
 
-3. Generate a public key using the command: nrfutil keys display --key pk --format code private.key --out_file public_key.c
+3. Generate a public key using the command: nrfutil keys display --key pk --format code private.key --out_file dfu_public_key.c
+   copy this file to \firmware\dfu
 
 4. Use Oberon crypto library instead of uECC in sdk_config.h change the following:
    NRF_CRYPTO_BACKEND_MICRO_ECC_ENABLED to 0
    NRF_CRYPTO_BACKEND_OBERON_ENABLED to 1
    And remove micro_ecc_lib_nrf52.lib file in the project list. 
 
-5. Make an ota application:
-a) nrf52832:
+5. Make an ota application (for nrf52832 only):
    nrfutil pkg generate --hw-version 52 --application-version 1 --application nrf52832_xxaa.hex --sd-req 0x0101 --key-file private.key app_dfu_package.zip
    --sd-req 0x0101 ***** check documentation
-
-b) nrf52833:
-   nrfutil pkg generate --hw-version 52 --application-version 1 --application nrf52833_xxaa.hex --sd-req 0x0100 --key-file private.key 0pa1_dfu_package.zip
-   --sd-req 0x0100 ***** check documentation
-
-6) To test, copy the file to the phone and use the nRf connect APP to flash the ble device using OTA.
+    
+6) To test, copy the file to the phone and use the nRf connect APP to flash the ble device using OTA.(for nrf52832 only)
 
 
 **Steps for merging the softdevice, bootloader and application into one file:**
-1. Generate bootloader setting and Merge with bootloader:
-a) nrf52832:
+I. Generate bootloader setting and Merge with bootloader:
    nrfutil settings generate --family NRF52 --application nrf52832_xxaa.hex --application-version 0 --bootloader-version 0 --bl-settings-version 2 bootloader_setting652.hex
-
-b) nrf52833:
-   nrfutil settings generate --family NRF52 --application nrf52833_xxaa.hex --application-version 0 --bootloader-version 0 --bl-settings-version 2 bootloader_setting.hex
-
-2. Start to merge:
-a) nrf52832 with debug:
+   
+II. Start to merge:
+a) with debug:
    mergehex --merge nrf52832_xxaa_s132.hex bootloader_setting652.hex --output bootloader_with_setting652.hex
    mergehex --merge bootloader_with_setting652.hex nrf52832_xxaa.hex --output bootloader_with_setting_app652.hex
    mergehex --merge bootloader_with_setting_app652.hex s132_nrf52_7.2.0_softdevice.hex --output bl652_debug.hex
    
-b) nrf52833:
+7. Make an ota application (for nrf52833 only):
+   nrfutil pkg generate --hw-version 52 --application-version 1 --application nrf52833_xxaa.hex --sd-req 0x0100 --key-file private.key 0pa1_dfu_package.zip
+   --sd-req 0x0100 ***** check documentation
+
+8) To test, copy the file to the phone and use the nRf connect APP to flash the ble device using OTA. (for nrf52833 only)
+
+
+**Steps for merging the softdevice, bootloader and application into one file:**
+I. Generate bootloader setting and Merge with bootloader:
+   nrfutil settings generate --family NRF52 --application nrf52833_xxaa.hex --application-version 0 --bootloader-version 0 --bl-settings-version 2 bootloader_setting.hex
+
+II. Start to merge:
+a) nrf52833: without bootloader debug
    mergehex --merge nrf52833_xxaa_s140.hex bootloader_setting.hex --output bootloader_with_setting.hex
    mergehex --merge bootloader_with_setting.hex nrf52833_xxaa.hex --output bootloader_with_setting_app.hex
    mergehex --merge bootloader_with_setting_app.hex s140_nrf52_7.2.0_softdevice.hex --output bootloader_with_setting_app_softdevice.hex   
    
-c) nrf52833 with debug:
+b) nrf52833 with debug:
    mergehex --merge nrf52833_xxaa_s140_debug.hex bootloader_setting.hex --output bootloader_with_setting_debug.hex
    mergehex --merge bootloader_with_setting_debug.hex nrf52833_xxaa.hex --output bootloader_with_setting_app_debug.hex
    mergehex --merge bootloader_with_setting_app_debug.hex s140_nrf52_7.2.0_softdevice.hex --output bl653_debug.hex
+```
+#### Using Build script in windows
+The steps 5-8 above are summarized in build script that is available in \collectable\Flash.
+The script uses Keil as primary compiler and gcc as secondary compiler. 
+If Keil is not available and you would wish to build using GCC, the line from 13-68 in build script can be removed, also the lines 90-96 should be modified by replacing arm5_no_packs by armgcc.
+
 
    ***** Make sure the said files are in the directory
 
 ## License
 
-*Simusolar and Dev partners*
+*MIT*
